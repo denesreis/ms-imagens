@@ -1,0 +1,98 @@
+version: "3.9"
+
+# ==============================================================================
+# MS Imagens - Docker Compose (Produção/Staging)
+# ==============================================================================
+
+services:
+
+  # ----------------------------------------------------------------------------
+  # Aplicação - MS Imagens (Tomcat + WAR)
+  # ----------------------------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ms-imagens-app
+    restart: unless-stopped
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+    environment:
+      SPRING_PROFILE: prod
+      SERVER_PORT: 8080
+
+      # Database
+      DATABASE_URL: jdbc:postgresql://postgres:5432/${DB_NAME:-msimagens}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+
+      # JWT (OBRIGATÓRIO)
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-1800000}
+      JWT_REFRESH_EXPIRATION: ${JWT_REFRESH_EXPIRATION:-604800000}
+
+      # Cloudflare
+      CLOUDFLARE_ACCOUNT_ID: ${CLOUDFLARE_ACCOUNT_ID}
+      CLOUDFLARE_GET_TOKEN: ${CLOUDFLARE_GET_TOKEN}
+      CLOUDFLARE_POST_TOKEN: ${CLOUDFLARE_POST_TOKEN}
+
+      # Configurações
+      IMAGE_COMPRESSION_ENABLED: ${IMAGE_COMPRESSION_ENABLED:-true}
+      LOGIN_MAX_ATTEMPTS: ${LOGIN_MAX_ATTEMPTS:-5}
+      LOGIN_BLOCK_DURATION: ${LOGIN_BLOCK_DURATION:-900000}
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-false}
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    volumes:
+      - app-logs:/var/log/ms-imagens
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+
+  # ----------------------------------------------------------------------------
+  # Banco de Dados - PostgreSQL 16
+  # ----------------------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: ms-imagens-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-msimagens}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME:-msimagens}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+# ==============================================================================
+# Volumes
+# ==============================================================================
+volumes:
+  postgres-data:
+    driver: local
+  app-logs:
+    driver: local
+
+# ==============================================================================
+# Networks
+# ==============================================================================
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,9 @@
+-- ============================================================
+-- Flyway Migrations - MS Imagens
+-- ============================================================
+-- Nomenclatura: V{versão}__{descrição}.sql
+-- Versões são sequenciais e IMUTÁVEIS após deploy
+--
+-- V1__create_tables.sql         → Task 03 - schema inicial
+-- V2__insert_initial_data.sql   → Task 03 - dados iniciais
+-- ============================================================

@@ -1,0 +1,123 @@
+spring:
+  application:
+    name: ms-imagens
+
+  # Profile ativo
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+
+  # JPA / Hibernate
+  jpa:
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+
+  # Jackson
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: America/Sao_Paulo
+    default-property-inclusion: non_null
+
+  # Multipart (upload de arquivos)
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+  # NOTA: NÃO usar spring.security.user - autenticação 100% via JWT
+
+  # Cache (Caffeine)
+  cache:
+    type: caffeine
+    cache-names: imagensPorEan, imagensPorProduto
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=10m
+
+# Configurações do Servidor
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param
+    include-exception: false
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+# Configurações da Aplicação
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-secret-to-at-least-256-bits-in-production}
+    expiration: ${JWT_EXPIRATION:1800000}          # 30 minutos em ms
+    refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000}  # 7 dias em ms
+
+  security:
+    login:
+      max-attempts: ${LOGIN_MAX_ATTEMPTS:5}        # bloqueio após 5 tentativas
+      block-duration: ${LOGIN_BLOCK_DURATION:900000} # 15 minutos em ms
+
+  cloudflare:
+    account-id: ${CLOUDFLARE_ACCOUNT_ID:}
+    base-url: https://api.cloudflare.com/client/v4
+    get-token: ${CLOUDFLARE_GET_TOKEN:}
+    post-token: ${CLOUDFLARE_POST_TOKEN:}
+    max-file-size: 10485760   # 10MB em bytes
+    allowed-extensions: jpg,jpeg,png,gif,webp
+    timeout:
+      connect: 10000           # 10 segundos
+      read: 30000              # 30 segundos
+
+  image:
+    compression:
+      enabled: ${IMAGE_COMPRESSION_ENABLED:true}
+      max-width: ${IMAGE_MAX_WIDTH:1920}
+      max-height: ${IMAGE_MAX_HEIGHT:1080}
+      quality: ${IMAGE_QUALITY:0.85}
+
+# Actuator (Monitoramento)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.scasistemas.msimagens: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.hibernate.SQL: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Springdoc OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+  show-actuator: false

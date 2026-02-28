@@ -1,0 +1,1153 @@
+﻿java.exe : WARNING: A restricted method in java.lang.System has been called
+No linha:1 caractere:1
++ & $javaExe -classpath $wrapperJar "-Dmaven.multiModuleProjectDirector ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: A rest...has been called 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+WARNING: java.lang.System::load has been called by 
+org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Users/
+denes/.m2/wrapper/dists/apache-maven-3.9.6-bin/3311e1d4/apache-maven-3.9.6/lib/
+jansi-2.4.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers 
+in this module
+WARNING: Restricted methods will be blocked in a future release unless native 
+access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by 
+com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/U
+sers/denes/.m2/wrapper/dists/apache-maven-3.9.6-bin/3311e1d4/apache-maven-3.9.6
+/lib/guava-32.0.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class 
+com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.scasistemas:ms-imagens >---------------------
+[INFO] Building ms-imagens 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ ms-imagens ---
+[INFO] argLine set to -javaagent:C:\\Users\\denes\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.13\\org.jacoco.agent-0.8.13-runtime.jar=destfile=C:\\WS-SCA\\ms-imagens\\target\\jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-imagens ---
+[INFO] Copying 4 resources from src\main\resources to target\classes
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ms-imagens ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-imagens ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ms-imagens ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 49 source files with javac [debug parameters release 21] to target\test-classes
+[WARNING] The following options were not recognized by any processor: '[mapstruct.defaultComponentModel]'
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/EmpresaControllerIntegrationTest.java:[43,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/EmpresaControllerIntegrationTest.java:[43,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/EmpresaControllerIntegrationTest.java:[43,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/EmpresaControllerIntegrationTest.java:[43,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/EmpresaControllerIntegrationTest.java:[43,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/ImagemControllerIntegrationTest.java:[49,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/ImagemControllerIntegrationTest.java:[49,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/ImagemControllerIntegrationTest.java:[49,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/ImagemControllerIntegrationTest.java:[49,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /C:/WS-SCA/ms-imagens/src/test/java/com/scasistemas/msimagens/infrastructure/web/controllers/ImagemControllerIntegrationTest.java:[49,6] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ ms-imagens ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.scasistemas.msimagens.application.services.RefreshTokenServiceTest
+16:50:23.625 [main] INFO com.scasistemas.msimagens.application.services.RefreshTokenService -- [RefreshToken] Rotacionado para usu├írio 'admin'
+16:50:23.784 [main] INFO com.scasistemas.msimagens.application.services.RefreshTokenService -- [RefreshToken] Todos os tokens revogados para usu├írio id=1
+16:50:23.789 [main] WARN com.scasistemas.msimagens.application.services.RefreshTokenService -- [RefreshToken] Token inv├ílido (revogado=true, expirado=2026-02-21T16:50:23.788822700)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.300 s -- in com.scasistemas.msimagens.application.services.RefreshTokenServiceTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCaseTest
+16:50:24.038 [main] INFO com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCase -- [Auth] Login bem-sucedido para 'admin' (empresa=1)
+16:50:24.084 [main] WARN com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCase -- [Auth] Login bloqueado por brute force para 'admin'
+16:50:24.118 [main] INFO com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCase -- [Auth] Login bem-sucedido para 'admin' (empresa=1)
+16:50:24.129 [main] WARN com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCase -- [Auth] Login bloqueado por brute force para 'admin'
+16:50:24.162 [main] WARN com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCase -- [Auth] Credenciais inv├ílidas para 'admin'
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.354 s -- in com.scasistemas.msimagens.application.usecases.AuthenticateUserUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.CreateEmpresaUseCaseTest
+16:50:24.305 [main] INFO com.scasistemas.msimagens.application.usecases.CreateEmpresaUseCase -- [CreateEmpresa] Criando empresa codigoErp='ERP-001'
+16:50:24.328 [main] INFO com.scasistemas.msimagens.application.usecases.CreateEmpresaUseCase -- [CreateEmpresa] Criando empresa codigoErp='ERP-001'
+16:50:24.334 [main] INFO com.scasistemas.msimagens.application.usecases.CreateEmpresaUseCase -- [CreateEmpresa] Empresa id=1 criada com sucesso
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s -- in com.scasistemas.msimagens.application.usecases.CreateEmpresaUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.CreateImagemUseCaseTest
+16:50:24.598 [main] INFO com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Upload de imagem para produto id='produto-uuid-001'
+16:50:24.659 [main] INFO com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Upload de imagem para produto id='produto-uuid-001'
+16:50:24.661 [main] INFO com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Registro PENDENTE criado id='imagem-uuid-001'
+16:50:24.666 [main] INFO com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Upload bem-sucedido cloudflareId='cf-img-id'
+16:50:24.701 [main] INFO com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Upload de imagem para produto id='produto-uuid-001'
+16:50:24.704 [main] INFO com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Registro PENDENTE criado id='imagem-uuid-001'
+16:50:24.705 [main] WARN com.scasistemas.msimagens.application.usecases.CreateImagemUseCase -- [CreateImagem] Upload falhou para imagem id='imagem-uuid-001': Timeout na API Cloudflare
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.344 s -- in com.scasistemas.msimagens.application.usecases.CreateImagemUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.CreateProdutoUseCaseTest
+16:50:24.763 [main] INFO com.scasistemas.msimagens.application.usecases.CreateProdutoUseCase -- [CreateProduto] Criando produto ean='7891234567890'
+16:50:24.773 [main] INFO com.scasistemas.msimagens.application.usecases.CreateProdutoUseCase -- [CreateProduto] Criando produto ean='7891234567890'
+16:50:24.775 [main] INFO com.scasistemas.msimagens.application.usecases.CreateProdutoUseCase -- [CreateProduto] Produto id=prod-uuid-001 criado com sucesso
+16:50:24.775 [main] INFO com.scasistemas.msimagens.application.usecases.CreateProdutoUseCase -- [CreateProduto] Criando produto ean='7891234567890'
+16:50:24.775 [main] INFO com.scasistemas.msimagens.application.usecases.CreateProdutoUseCase -- [CreateProduto] Produto id=prod-uuid-002 criado com sucesso
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in com.scasistemas.msimagens.application.usecases.CreateProdutoUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCaseTest
+16:50:24.857 [main] INFO com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCase -- [CreateUsuario] Criando usu├írio nome='novo.usuario'
+16:50:24.867 [main] INFO com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCase -- [CreateUsuario] Criando usu├írio nome='novo.usuario'
+16:50:24.868 [main] INFO com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCase -- [CreateUsuario] Usu├írio id=5 criado com sucesso
+16:50:24.878 [main] INFO com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCase -- [CreateUsuario] Criando usu├írio nome='novo.usuario'
+16:50:24.880 [main] INFO com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCase -- [CreateUsuario] Usu├írio id=1 criado com sucesso
+16:50:24.888 [main] INFO com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCase -- [CreateUsuario] Criando usu├írio nome='novo.usuario'
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in com.scasistemas.msimagens.application.usecases.CreateUsuarioUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.DeleteEmpresaUseCaseTest
+16:50:24.923 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteEmpresaUseCase -- [DeleteEmpresa] Soft delete empresa id=1
+16:50:24.926 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteEmpresaUseCase -- [DeleteEmpresa] Empresa id=1 desativada com sucesso
+16:50:24.932 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteEmpresaUseCase -- [DeleteEmpresa] Soft delete empresa id=999
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.scasistemas.msimagens.application.usecases.DeleteEmpresaUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.DeleteImagemUseCaseTest
+16:50:24.951 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Deletando imagem id=img-001
+16:50:24.951 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Imagem removida da Cloudflare: cf-img-001
+16:50:24.953 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Imagem id=img-001 deletada com sucesso
+16:50:24.962 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Deletando imagem id=img-001
+16:50:24.965 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Imagem id=img-001 deletada com sucesso
+16:50:24.971 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Deletando imagem id=nao-existe
+16:50:24.978 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Deletando imagem id=img-001
+16:50:24.978 [main] WARN com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Falha ao remover da Cloudflare (ignorando): Cloudflare timeout
+16:50:24.978 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Imagem id=img-001 deletada com sucesso
+16:50:24.987 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteImagemUseCase -- [DeleteImagem] Deletando imagem id=img-001
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in com.scasistemas.msimagens.application.usecases.DeleteImagemUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCaseTest
+16:50:25.000 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCase -- [DeleteProduto] Soft delete produto id=prod-001
+16:50:25.002 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCase -- [DeleteProduto] Produto id=prod-001 desativado com sucesso
+16:50:25.019 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCase -- [DeleteProduto] Soft delete produto id=prod-001
+16:50:25.023 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCase -- [DeleteProduto] Produto id=prod-001 desativado com sucesso
+16:50:25.041 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCase -- [DeleteProduto] Soft delete produto id=nao-existe
+16:50:25.041 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCase -- [DeleteProduto] Soft delete produto id=prod-001
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s -- in com.scasistemas.msimagens.application.usecases.DeleteProdutoUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.DeleteUsuarioUseCaseTest
+16:50:25.064 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteUsuarioUseCase -- [DeleteUsuario] Soft delete usu├írio id=999
+16:50:25.073 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteUsuarioUseCase -- [DeleteUsuario] Soft delete usu├írio id=5
+16:50:25.075 [main] INFO com.scasistemas.msimagens.application.usecases.DeleteUsuarioUseCase -- [DeleteUsuario] Usu├írio id=5 desativado com sucesso
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in com.scasistemas.msimagens.application.usecases.DeleteUsuarioUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.GetEmpresaUseCaseTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.scasistemas.msimagens.application.usecases.GetEmpresaUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.GetImagemByIdUseCaseTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.scasistemas.msimagens.application.usecases.GetImagemByIdUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.GetImagensByCodigoEanUseCaseTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in com.scasistemas.msimagens.application.usecases.GetImagensByCodigoEanUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.GetImagensByProdutoUseCaseTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in com.scasistemas.msimagens.application.usecases.GetImagensByProdutoUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.GetProdutoUseCaseTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.scasistemas.msimagens.application.usecases.GetProdutoUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.GetUsuarioUseCaseTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in com.scasistemas.msimagens.application.usecases.GetUsuarioUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.ListEmpresasUseCaseTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.scasistemas.msimagens.application.usecases.ListEmpresasUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.ListProdutosUseCaseTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in com.scasistemas.msimagens.application.usecases.ListProdutosUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.ListUsuariosUseCaseTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.scasistemas.msimagens.application.usecases.ListUsuariosUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.LogoutUseCaseTest
+16:50:25.621 [main] INFO com.scasistemas.msimagens.application.usecases.LogoutUseCase -- [Logout] Logout realizado para 'usuario.teste'
+16:50:25.632 [main] INFO com.scasistemas.msimagens.application.usecases.LogoutUseCase -- [Logout] Logout realizado para 'usuario'
+16:50:25.639 [main] INFO com.scasistemas.msimagens.application.usecases.LogoutUseCase -- [Logout] Logout realizado para 'usuario.teste'
+16:50:25.645 [main] INFO com.scasistemas.msimagens.application.usecases.LogoutUseCase -- [Logout] Logout realizado para 'usuario.teste'
+16:50:25.657 [main] INFO com.scasistemas.msimagens.application.usecases.LogoutUseCase -- [Logout] Logout realizado para 'usuario.teste'
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 s -- in com.scasistemas.msimagens.application.usecases.LogoutUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.RefreshTokenUseCaseTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.scasistemas.msimagens.application.usecases.RefreshTokenUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.UpdateEmpresaUseCaseTest
+16:50:25.682 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateEmpresaUseCase -- [UpdateEmpresa] Atualizando empresa id=1
+16:50:25.686 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateEmpresaUseCase -- [UpdateEmpresa] Empresa id=1 atualizada com sucesso
+16:50:25.694 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateEmpresaUseCase -- [UpdateEmpresa] Atualizando empresa id=1
+16:50:25.706 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateEmpresaUseCase -- [UpdateEmpresa] Atualizando empresa id=999
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in com.scasistemas.msimagens.application.usecases.UpdateEmpresaUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.UpdateImagemUseCaseTest
+16:50:25.721 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateImagemUseCase -- [UpdateImagem] Atualizando imagem id=nao-existe tipo=ABERTO
+16:50:25.733 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateImagemUseCase -- [UpdateImagem] Atualizando imagem id=img-001 tipo=PRIVADO
+16:50:25.734 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateImagemUseCase -- [UpdateImagem] Imagem id=img-001 atualizada para tipo=PRIVADO
+16:50:25.746 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateImagemUseCase -- [UpdateImagem] Atualizando imagem id=img-001 tipo=PRIVADO
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in com.scasistemas.msimagens.application.usecases.UpdateImagemUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.UpdateProdutoUseCaseTest
+16:50:25.763 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateProdutoUseCase -- [UpdateProduto] Atualizando produto id=prod-001
+16:50:25.764 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateProdutoUseCase -- [UpdateProduto] Produto id=prod-001 atualizado com sucesso
+16:50:25.770 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateProdutoUseCase -- [UpdateProduto] Atualizando produto id=nao-existe
+16:50:25.774 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateProdutoUseCase -- [UpdateProduto] Atualizando produto id=prod-001
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.scasistemas.msimagens.application.usecases.UpdateProdutoUseCaseTest
+[INFO] Running com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCaseTest
+16:50:25.793 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Atualizando usu├írio id=2
+16:50:25.795 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Usu├írio id=2 atualizado com sucesso
+16:50:25.805 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Atualizando usu├írio id=999
+16:50:25.815 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Atualizando usu├írio id=1
+16:50:25.815 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Usu├írio id=1 atualizado com sucesso
+16:50:25.820 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Atualizando usu├írio id=5
+16:50:25.821 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Usu├írio id=5 atualizado com sucesso
+16:50:25.824 [main] INFO com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCase -- [UpdateUsuario] Atualizando usu├írio id=5
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in com.scasistemas.msimagens.application.usecases.UpdateUsuarioUseCaseTest
+[INFO] Running com.scasistemas.msimagens.domain.entities.AuditLogTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.scasistemas.msimagens.domain.entities.AuditLogTest
+[INFO] Running com.scasistemas.msimagens.domain.entities.EmpresaTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.scasistemas.msimagens.domain.entities.EmpresaTest
+[INFO] Running com.scasistemas.msimagens.domain.entities.ImagemTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.scasistemas.msimagens.domain.entities.ImagemTest
+[INFO] Running com.scasistemas.msimagens.domain.entities.ProdutoTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.scasistemas.msimagens.domain.entities.ProdutoTest
+[INFO] Running com.scasistemas.msimagens.domain.entities.RefreshTokenTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.scasistemas.msimagens.domain.entities.RefreshTokenTest
+[INFO] Running com.scasistemas.msimagens.domain.entities.UsuarioTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.scasistemas.msimagens.domain.entities.UsuarioTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.cloudflare.ImageCompressionServiceTest
+16:50:26.240 [main] WARN com.scasistemas.msimagens.infrastructure.cloudflare.ImageCompressionService -- [Compress├úo] Falha ao comprimir 'corrupted.jpg' (image/jpeg), usando arquivo original: No suitable ImageReader found for source data.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.291 s -- in com.scasistemas.msimagens.infrastructure.cloudflare.ImageCompressionServiceTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.persistence.EmpresaRepositoryIntegrationTest
+16:50:26.717 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.scasistemas.msimagens.infrastructure.persistence.EmpresaRepositoryIntegrationTest]: EmpresaRepositoryIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:50:27.287 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.scasistemas.msimagens.MsImagensApplication for test class com.scasistemas.msimagens.infrastructure.persistence.EmpresaRepositoryIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2026-02-20 16:50:29 [main] INFO  c.s.m.i.p.EmpresaRepositoryIntegrationTest - Starting EmpresaRepositoryIntegrationTest using Java 25.0.2 with PID 33604 (started by denes in C:\WS-SCA\ms-imagens)
+2026-02-20 16:50:29 [main] INFO  c.s.m.i.p.EmpresaRepositoryIntegrationTest - The following 1 profile is active: "test"
+2026-02-20 16:50:33 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+Hibernate: 
+    drop table if exists tb_audit_log cascade 
+Hibernate: 
+    drop table if exists tb_empresa cascade 
+Hibernate: 
+    drop table if exists tb_imagem cascade 
+Hibernate: 
+    drop table if exists tb_produto cascade 
+Hibernate: 
+    drop table if exists tb_refresh_token cascade 
+Hibernate: 
+    drop table if exists tb_usuario cascade 
+Hibernate: 
+    create table tb_audit_log (
+        data_criacao timestamp(6) not null,
+        id bigint generated by default as identity,
+        id_empresa bigint,
+        usuario varchar(30) not null,
+        ip varchar(45),
+        acao varchar(50) not null,
+        detalhes TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table tb_empresa (
+        ativo BOOLEAN DEFAULT TRUE not null,
+        data_atualizacao timestamp(6) not null,
+        data_criacao timestamp(6) not null,
+        id bigint generated by default as identity,
+        codigo_erp varchar(20) not null unique,
+        nome varchar(100) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tb_imagem (
+        ativo BOOLEAN DEFAULT TRUE not null,
+        data_atualizacao timestamp(6) not null,
+        data_criacao timestamp(6) not null,
+        id_empresa bigint,
+        id varchar(36) not null,
+        id_produto varchar(36) not null,
+        id_imagem_cloudflare varchar(50),
+        filename varchar(255),
+        url TEXT,
+        status VARCHAR(10) DEFAULT 'PENDENTE' not null,
+        tipo_armazenamento enum ('ABERTO','PRIVADO') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tb_produto (
+        ativo BOOLEAN DEFAULT TRUE not null,
+        data_atualizacao timestamp(6) not null,
+        data_criacao timestamp(6) not null,
+        id_empresa bigint,
+        codigo_ean varchar(13) not null,
+        codigo_erp varchar(20),
+        id varchar(36) not null,
+        descricao varchar(80) not null,
+        discriminacao varchar(200),
+        primary key (id)
+    )
+Hibernate: 
+    create table tb_refresh_token (
+        revogado BOOLEAN DEFAULT FALSE not null,
+        data_criacao timestamp(6) not null,
+        expira_em timestamp(6) not null,
+        id bigint generated by default as identity,
+        id_usuario bigint not null,
+        token_hash varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table tb_usuario (
+        ativo BOOLEAN DEFAULT TRUE not null,
+        tentativas_login INTEGER DEFAULT 0 not null,
+        bloqueado_ate timestamp(6),
+        data_atualizacao timestamp(6) not null,
+        data_criacao timestamp(6) not null,
+        id bigint generated by default as identity,
+        id_empresa bigint,
+        nome varchar(30) not null unique,
+        senha varchar(60) not null,
+        role enum ('ADMINISTRADOR','USUARIO') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create index idx_audit_log_acao 
+       on tb_audit_log (acao)
+Hibernate: 
+    create index idx_audit_log_usuario 
+       on tb_audit_log (usuario)
+Hibernate: 
+    create index idx_audit_log_data_criacao 
+       on tb_audit_log (data_criacao)
+Hibernate: 
+    create index idx_audit_log_id_empresa 
+       on tb_audit_log (id_empresa)
+Hibernate: 
+    create index idx_empresa_ativo 
+       on tb_empresa (ativo)
+Hibernate: 
+    create index idx_imagem_id_produto 
+       on tb_imagem (id_produto)
+Hibernate: 
+    create index idx_imagem_id_empresa 
+       on tb_imagem (id_empresa)
+Hibernate: 
+    create index idx_imagem_status 
+       on tb_imagem (status)
+Hibernate: 
+    create index idx_imagem_tipo_armazenamento 
+       on tb_imagem (tipo_armazenamento)
+Hibernate: 
+    create index idx_imagem_ativo 
+       on tb_imagem (ativo)
+Hibernate: 
+    create index idx_produto_codigo_ean 
+       on tb_produto (codigo_ean)
+Hibernate: 
+    create index idx_produto_codigo_erp 
+       on tb_produto (codigo_erp)
+Hibernate: 
+    create index idx_produto_id_empresa 
+       on tb_produto (id_empresa)
+Hibernate: 
+    create index idx_produto_ativo 
+       on tb_produto (ativo)
+Hibernate: 
+    create index idx_refresh_token_usuario 
+       on tb_refresh_token (id_usuario)
+Hibernate: 
+    create index idx_refresh_token_expira_em 
+       on tb_refresh_token (expira_em)
+Hibernate: 
+    create index idx_usuario_nome 
+       on tb_usuario (nome)
+Hibernate: 
+    create index idx_usuario_id_empresa 
+       on tb_usuario (id_empresa)
+Hibernate: 
+    create index idx_usuario_ativo 
+       on tb_usuario (ativo)
+2026-02-20 16:50:49 [main] INFO  c.s.m.i.p.EmpresaRepositoryIntegrationTest - Started EmpresaRepositoryIntegrationTest in 22.068 seconds (process running for 28.683)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.EmpresaEntity */insert 
+    into
+        tb_empresa (ativo, codigo_erp, data_atualizacao, data_criacao, nome, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.EmpresaEntity */insert 
+    into
+        tb_empresa (ativo, codigo_erp, data_atualizacao, data_criacao, nome, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.EmpresaEntity */insert 
+    into
+        tb_empresa (ativo, codigo_erp, data_atualizacao, data_criacao, nome, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    UPDATE
+        tb_empresa 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    select
+        ee1_0.id,
+        ee1_0.ativo,
+        ee1_0.codigo_erp,
+        ee1_0.data_atualizacao,
+        ee1_0.data_criacao,
+        ee1_0.nome 
+    from
+        tb_empresa ee1_0 
+    where
+        ee1_0.id=? 
+        and (
+            ee1_0.ativo = true
+        )
+Hibernate: 
+    /* <criteria> */ select
+        ee1_0.id,
+        ee1_0.ativo,
+        ee1_0.codigo_erp,
+        ee1_0.data_atualizacao,
+        ee1_0.data_criacao,
+        ee1_0.nome 
+    from
+        tb_empresa ee1_0 
+    where
+        (
+            ee1_0.ativo = true
+        ) 
+        and ee1_0.codigo_erp=?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.EmpresaEntity */insert 
+    into
+        tb_empresa (ativo, codigo_erp, data_atualizacao, data_criacao, nome, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* <criteria> */ select
+        ee1_0.id,
+        ee1_0.ativo,
+        ee1_0.codigo_erp,
+        ee1_0.data_atualizacao,
+        ee1_0.data_criacao,
+        ee1_0.nome 
+    from
+        tb_empresa ee1_0 
+    where
+        (
+            ee1_0.ativo = true
+        ) 
+        and ee1_0.codigo_erp=?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.EmpresaEntity */insert 
+    into
+        tb_empresa (ativo, codigo_erp, data_atualizacao, data_criacao, nome, id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    UPDATE
+        tb_empresa 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    /* <criteria> */ select
+        ee1_0.id,
+        ee1_0.ativo,
+        ee1_0.codigo_erp,
+        ee1_0.data_atualizacao,
+        ee1_0.data_criacao,
+        ee1_0.nome 
+    from
+        tb_empresa ee1_0 
+    where
+        (
+            ee1_0.ativo = true
+        ) 
+        and ee1_0.codigo_erp=?
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 24.52 s -- in com.scasistemas.msimagens.infrastructure.persistence.EmpresaRepositoryIntegrationTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.persistence.ImagemRepositoryIntegrationTest
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    UPDATE
+        tb_imagem 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    /* SELECT
+        i 
+    FROM
+        ImagemEntity i 
+    JOIN
+        ProdutoEntity p 
+            ON p.id = i.idProduto 
+    WHERE
+        p.codigoEan = :codigoEan   
+        AND i.tipoArmazenamento = 'ABERTO'   
+        AND i.status = :status  */ select
+            ie1_0.id,
+            ie1_0.ativo,
+            ie1_0.data_atualizacao,
+            ie1_0.data_criacao,
+            ie1_0.filename,
+            ie1_0.id_empresa,
+            ie1_0.id_imagem_cloudflare,
+            ie1_0.id_produto,
+            ie1_0.status,
+            ie1_0.tipo_armazenamento,
+            ie1_0.url 
+        from
+            tb_imagem ie1_0 
+        join
+            tb_produto pe1_0 
+                on (pe1_0.ativo = true) 
+                and pe1_0.id=ie1_0.id_produto 
+        where
+            (
+                ie1_0.ativo = true
+            ) 
+            and pe1_0.codigo_ean=? 
+            and ie1_0.tipo_armazenamento='ABERTO' 
+            and ie1_0.status=?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* <criteria> */ select
+        ie1_0.id,
+        ie1_0.ativo,
+        ie1_0.data_atualizacao,
+        ie1_0.data_criacao,
+        ie1_0.filename,
+        ie1_0.id_empresa,
+        ie1_0.id_imagem_cloudflare,
+        ie1_0.id_produto,
+        ie1_0.status,
+        ie1_0.tipo_armazenamento,
+        ie1_0.url 
+    from
+        tb_imagem ie1_0 
+    where
+        (
+            ie1_0.ativo = true
+        ) 
+        and ie1_0.id_produto=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    UPDATE
+        tb_imagem 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    select
+        ie1_0.id,
+        ie1_0.ativo,
+        ie1_0.data_atualizacao,
+        ie1_0.data_criacao,
+        ie1_0.filename,
+        ie1_0.id_empresa,
+        ie1_0.id_imagem_cloudflare,
+        ie1_0.id_produto,
+        ie1_0.status,
+        ie1_0.tipo_armazenamento,
+        ie1_0.url 
+    from
+        tb_imagem ie1_0 
+    where
+        ie1_0.id=? 
+        and (
+            ie1_0.ativo = true
+        )
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* SELECT
+        i 
+    FROM
+        ImagemEntity i 
+    JOIN
+        ProdutoEntity p 
+            ON p.id = i.idProduto 
+    WHERE
+        p.codigoEan = :codigoEan   
+        AND i.tipoArmazenamento = 'ABERTO'   
+        AND i.status = :status  */ select
+            ie1_0.id,
+            ie1_0.ativo,
+            ie1_0.data_atualizacao,
+            ie1_0.data_criacao,
+            ie1_0.filename,
+            ie1_0.id_empresa,
+            ie1_0.id_imagem_cloudflare,
+            ie1_0.id_produto,
+            ie1_0.status,
+            ie1_0.tipo_armazenamento,
+            ie1_0.url 
+        from
+            tb_imagem ie1_0 
+        join
+            tb_produto pe1_0 
+                on (pe1_0.ativo = true) 
+                and pe1_0.id=ie1_0.id_produto 
+        where
+            (
+                ie1_0.ativo = true
+            ) 
+            and pe1_0.codigo_ean=? 
+            and ie1_0.tipo_armazenamento='ABERTO' 
+            and ie1_0.status=?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ImagemEntity */insert 
+    into
+        tb_imagem (ativo, data_atualizacao, data_criacao, filename, id_empresa, id_imagem_cloudflare, id_produto, status, tipo_armazenamento, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* SELECT
+        i 
+    FROM
+        ImagemEntity i 
+    JOIN
+        ProdutoEntity p 
+            ON p.id = i.idProduto 
+    WHERE
+        p.codigoEan = :codigoEan   
+        AND i.tipoArmazenamento = 'ABERTO'   
+        AND i.status = :status  */ select
+            ie1_0.id,
+            ie1_0.ativo,
+            ie1_0.data_atualizacao,
+            ie1_0.data_criacao,
+            ie1_0.filename,
+            ie1_0.id_empresa,
+            ie1_0.id_imagem_cloudflare,
+            ie1_0.id_produto,
+            ie1_0.status,
+            ie1_0.tipo_armazenamento,
+            ie1_0.url 
+        from
+            tb_imagem ie1_0 
+        join
+            tb_produto pe1_0 
+                on (pe1_0.ativo = true) 
+                and pe1_0.id=ie1_0.id_produto 
+        where
+            (
+                ie1_0.ativo = true
+            ) 
+            and pe1_0.codigo_ean=? 
+            and ie1_0.tipo_armazenamento='ABERTO' 
+            and ie1_0.status=?
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.774 s -- in com.scasistemas.msimagens.infrastructure.persistence.ImagemRepositoryIntegrationTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.persistence.ProdutoRepositoryIntegrationTest
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    UPDATE
+        tb_produto 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    select
+        pe1_0.id,
+        pe1_0.ativo,
+        pe1_0.codigo_ean,
+        pe1_0.codigo_erp,
+        pe1_0.data_atualizacao,
+        pe1_0.data_criacao,
+        pe1_0.descricao,
+        pe1_0.discriminacao,
+        pe1_0.id_empresa 
+    from
+        tb_produto pe1_0 
+    where
+        pe1_0.id=? 
+        and (
+            pe1_0.ativo = true
+        )
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* <criteria> */ select
+        pe1_0.id,
+        pe1_0.ativo,
+        pe1_0.codigo_ean,
+        pe1_0.codigo_erp,
+        pe1_0.data_atualizacao,
+        pe1_0.data_criacao,
+        pe1_0.descricao,
+        pe1_0.discriminacao,
+        pe1_0.id_empresa 
+    from
+        tb_produto pe1_0 
+    where
+        (
+            pe1_0.ativo = true
+        ) 
+        and pe1_0.codigo_ean=?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* <criteria> */ select
+        pe1_0.id,
+        pe1_0.ativo,
+        pe1_0.codigo_ean,
+        pe1_0.codigo_erp,
+        pe1_0.data_atualizacao,
+        pe1_0.data_criacao,
+        pe1_0.descricao,
+        pe1_0.discriminacao,
+        pe1_0.id_empresa 
+    from
+        tb_produto pe1_0 
+    where
+        (
+            pe1_0.ativo = true
+        ) 
+        and pe1_0.id_empresa=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.ProdutoEntity */insert 
+    into
+        tb_produto (ativo, codigo_ean, codigo_erp, data_atualizacao, data_criacao, descricao, discriminacao, id_empresa, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    UPDATE
+        tb_produto 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    /* <criteria> */ select
+        pe1_0.id,
+        pe1_0.ativo,
+        pe1_0.codigo_ean,
+        pe1_0.codigo_erp,
+        pe1_0.data_atualizacao,
+        pe1_0.data_criacao,
+        pe1_0.descricao,
+        pe1_0.discriminacao,
+        pe1_0.id_empresa 
+    from
+        tb_produto pe1_0 
+    where
+        (
+            pe1_0.ativo = true
+        ) 
+        and pe1_0.codigo_ean=?
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.483 s -- in com.scasistemas.msimagens.infrastructure.persistence.ProdutoRepositoryIntegrationTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.persistence.UsuarioRepositoryIntegrationTest
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* <criteria> */ select
+        ue1_0.id,
+        ue1_0.ativo,
+        ue1_0.bloqueado_ate,
+        ue1_0.data_atualizacao,
+        ue1_0.data_criacao,
+        ue1_0.id_empresa,
+        ue1_0.nome,
+        ue1_0.role,
+        ue1_0.senha,
+        ue1_0.tentativas_login 
+    from
+        tb_usuario ue1_0 
+    where
+        (
+            ue1_0.ativo = true
+        ) 
+        and ue1_0.id_empresa=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    UPDATE
+        tb_usuario 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    /* dynamic native SQL query */ SELECT
+        COUNT(*) > 0 
+    FROM
+        tb_usuario 
+    WHERE
+        nome = ?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    UPDATE
+        tb_usuario 
+    SET
+        ativo = false 
+    WHERE
+        id = ?
+Hibernate: 
+    /* <criteria> */ select
+        ue1_0.id,
+        ue1_0.ativo,
+        ue1_0.bloqueado_ate,
+        ue1_0.data_atualizacao,
+        ue1_0.data_criacao,
+        ue1_0.id_empresa,
+        ue1_0.nome,
+        ue1_0.role,
+        ue1_0.senha,
+        ue1_0.tentativas_login 
+    from
+        tb_usuario ue1_0 
+    where
+        (
+            ue1_0.ativo = true
+        ) 
+        and ue1_0.nome=?
+Hibernate: 
+    /* <criteria> */ select
+        ue1_0.id,
+        ue1_0.ativo,
+        ue1_0.bloqueado_ate,
+        ue1_0.data_atualizacao,
+        ue1_0.data_criacao,
+        ue1_0.id_empresa,
+        ue1_0.nome,
+        ue1_0.role,
+        ue1_0.senha,
+        ue1_0.tentativas_login 
+    from
+        tb_usuario ue1_0 
+    where
+        (
+            ue1_0.ativo = true
+        ) 
+        and ue1_0.nome=?
+Hibernate: 
+    /* insert for
+        com.scasistemas.msimagens.infrastructure.persistence.entities.UsuarioEntity */insert 
+    into
+        tb_usuario (ativo, bloqueado_ate, data_atualizacao, data_criacao, id_empresa, nome, role, senha, tentativas_login, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    /* <criteria> */ select
+        ue1_0.id,
+        ue1_0.ativo,
+        ue1_0.bloqueado_ate,
+        ue1_0.data_atualizacao,
+        ue1_0.data_criacao,
+        ue1_0.id_empresa,
+        ue1_0.nome,
+        ue1_0.role,
+        ue1_0.senha,
+        ue1_0.tentativas_login 
+    from
+        tb_usuario ue1_0 
+    where
+        (
+            ue1_0.ativo = true
+        ) 
+        and ue1_0.nome=?
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s -- in com.scasistemas.msimagens.infrastructure.persistence.UsuarioRepositoryIntegrationTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.security.CustomUserDetailsServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.scasistemas.msimagens.infrastructure.security.CustomUserDetailsServiceTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.security.JwtAuthenticationFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.576 s -- in com.scasistemas.msimagens.infrastructure.security.JwtAuthenticationFilterTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.security.JwtTokenProviderTest
+2026-02-20 16:50:54 [main] WARN  c.s.m.i.security.JwtTokenProvider - [JWT] Token inv├ílido: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.250 s -- in com.scasistemas.msimagens.infrastructure.security.JwtTokenProviderTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.security.LoginAttemptServiceTest
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user1': tentativa 1/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user1': tentativa 2/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user1': tentativa 3/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_custom': tentativa 1/3
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_custom': tentativa 2/3
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_custom': tentativa 3/3
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Conta 'user_custom' atingiu limite de tentativas - ser├í bloqueada
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_a': tentativa 1/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_a': tentativa 2/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_a': tentativa 3/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_a': tentativa 4/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_a': tentativa 5/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Conta 'user_a' atingiu limite de tentativas - ser├í bloqueada
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_b': tentativa 1/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_block': tentativa 1/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_block': tentativa 2/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_block': tentativa 3/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_block': tentativa 4/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_block': tentativa 5/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Conta 'user_block' atingiu limite de tentativas - ser├í bloqueada
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_reset': tentativa 1/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_reset': tentativa 2/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_reset': tentativa 3/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_reset': tentativa 4/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Falha de login para 'user_reset': tentativa 5/5
+2026-02-20 16:50:55 [main] WARN  c.s.m.i.security.LoginAttemptService - [BruteForce] Conta 'user_reset' atingiu limite de tentativas - ser├í bloqueada
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s -- in com.scasistemas.msimagens.infrastructure.security.LoginAttemptServiceTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.security.TokenBlacklistServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in com.scasistemas.msimagens.infrastructure.security.TokenBlacklistServiceTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.web.advice.GlobalExceptionHandlerTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s -- in com.scasistemas.msimagens.infrastructure.web.advice.GlobalExceptionHandlerTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.web.controllers.EmpresaControllerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2026-02-20 16:50:55 [main] INFO  c.s.m.i.w.c.EmpresaControllerIntegrationTest - Starting EmpresaControllerIntegrationTest using Java 25.0.2 with PID 33604 (started by denes in C:\WS-SCA\ms-imagens)
+2026-02-20 16:50:55 [main] INFO  c.s.m.i.w.c.EmpresaControllerIntegrationTest - The following 1 profile is active: "test"
+2026-02-20 16:51:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-20 16:51:03 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-20 16:51:03 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::allocateMemory has been called by 
+io.netty.util.internal.PlatformDependent0$2 (file:/C:/Users/denes/.m2/repositor
+y/io/netty/netty-common/4.1.118.Final/netty-common-4.1.118.Final.jar)
+WARNING: Please consider reporting this to the maintainers of class 
+io.netty.util.internal.PlatformDependent0$2
+WARNING: sun.misc.Unsafe::allocateMemory will be removed in a future release
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by 
+org.apache.tomcat.jni.Library in an unnamed module (file:/C:/Users/denes/.m2/re
+pository/org/apache/tomcat/embed/tomcat-embed-core/10.1.36/tomcat-embed-core-10
+.1.36.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers 
+in this module
+WARNING: Restricted methods will be blocked in a future release unless native 
+access is enabled
+
+2026-02-20 16:51:15 [main] INFO  c.s.m.i.w.c.EmpresaControllerIntegrationTest - Started EmpresaControllerIntegrationTest in 20.176 seconds (process running for 54.863)
+2026-02-20 16:51:17 [main] INFO  c.s.m.i.w.c.EmpresaController - Criando empresa: codigoErp=ERP-IT-01
+2026-02-20 16:51:17 [main] INFO  c.s.m.a.u.CreateEmpresaUseCase - [CreateEmpresa] Criando empresa codigoErp='ERP-IT-01'
+2026-02-20 16:51:17 [main] INFO  c.s.m.a.u.CreateEmpresaUseCase - [CreateEmpresa] Empresa id=1 criada com sucesso
+2026-02-20 16:51:17 [main] INFO  c.s.m.i.w.c.EmpresaController - Buscando empresa id=2
+2026-02-20 16:51:17 [main] INFO  c.s.m.i.w.c.EmpresaController - Criando empresa: codigoErp=ERP-DUP
+2026-02-20 16:51:17 [main] INFO  c.s.m.a.u.CreateEmpresaUseCase - [CreateEmpresa] Criando empresa codigoErp='ERP-DUP'
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.36 s -- in com.scasistemas.msimagens.infrastructure.web.controllers.EmpresaControllerIntegrationTest
+[INFO] Running com.scasistemas.msimagens.infrastructure.web.controllers.ImagemControllerIntegrationTest
+2026-02-20 16:51:17 [main] INFO  c.s.m.i.w.c.ImagemController - Buscando imagens codigoEan=1112223334441
+2026-02-20 16:51:18 [main] INFO  c.s.m.i.w.c.ImagemController - Buscando imagem id=id-que-nao-existe
+2026-02-20 16:51:18 [main] INFO  c.s.m.i.w.c.ImagemController - Buscando imagens idProduto=681651ca-3480-44f3-a6f4-bda85003090c
+2026-02-20 16:51:18 [main] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-02-20 16:51:18 [main] INFO  c.s.m.i.w.c.ImagemController - Buscando imagens codigoEan=9999999999999
+2026-02-20 16:51:18 [main] INFO  c.s.m.i.w.c.ImagemController - Buscando imagens codigoEan=1112223334441
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.637 s -- in com.scasistemas.msimagens.infrastructure.web.controllers.ImagemControllerIntegrationTest
+[INFO] Running com.scasistemas.msimagens.MsImagensApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2026-02-20 16:51:18 [main] INFO  c.s.m.MsImagensApplicationTests - Starting MsImagensApplicationTests using Java 25.0.2 with PID 33604 (started by denes in C:\WS-SCA\ms-imagens)
+2026-02-20 16:51:18 [main] INFO  c.s.m.MsImagensApplicationTests - The following 1 profile is active: "test"
+2026-02-20 16:51:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-20 16:51:20 [main] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-20 16:51:20 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-20 16:51:21 [main] INFO  c.s.m.MsImagensApplicationTests - Started MsImagensApplicationTests in 3.314 seconds (process running for 60.814)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.390 s -- in com.scasistemas.msimagens.MsImagensApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 198, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.13:report (report) @ ms-imagens ---
+[INFO] Loading execution data file C:\WS-SCA\ms-imagens\target\jacoco.exec
+[INFO] Analyzed bundle 'ms-imagens' with 78 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:17 min
+[INFO] Finished at: 2026-02-20T16:51:24-03:00
+[INFO] ------------------------------------------------------------------------
