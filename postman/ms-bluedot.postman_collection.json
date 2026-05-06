@@ -1,0 +1,823 @@
+{
+    "info": {
+        "_postman_id": "ms-bluedot-api-collection",
+        "name": "MS BlueDot API",
+        "description": "Micro-serviço de gerenciamento de imagens de produtos integrado com Cloudflare Images API.\n\n**Autenticação:** Execute o request `Auth > Login` e o token será armazenado automaticamente nas variáveis de ambiente.\n\n**Base URL:** {{baseUrl}}\n\n**Documentação:** {{baseUrl}}/swagger-ui.html",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "https://app-producao-apibluedot-yyjz.hospedagemelastica.com.br/api/v1",
+            "type": "default"
+        },
+        {
+            "key": "baseUrlLocal",
+            "value": "http://localhost:8080/api/v1",
+            "type": "default"
+        },
+        {
+            "key": "accessToken",
+            "value": "",
+            "type": "default"
+        },
+        {
+            "key": "refreshToken",
+            "value": "",
+            "type": "default"
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{accessToken}}",
+                "type": "string"
+            }
+        ]
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "Autenticação JWT - Login, Refresh e Logout",
+            "item": [
+                {
+                    "name": "Login",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 200) {",
+                                    "    const json = pm.response.json();",
+                                    "    pm.collectionVariables.set('accessToken', json.accessToken);",
+                                    "    pm.collectionVariables.set('refreshToken', json.refreshToken);",
+                                    "    console.log('Tokens armazenados com sucesso!');",
+                                    "    pm.test('Login realizado com sucesso', () => pm.response.to.have.status(200));",
+                                    "    pm.test('Possui accessToken', () => pm.expect(json.accessToken).to.be.a('string'));",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"nome\": \"admin\",\n  \"senha\": \"senha123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Refresh Token",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 200) {",
+                                    "    const json = pm.response.json();",
+                                    "    pm.collectionVariables.set('accessToken', json.accessToken);",
+                                    "    pm.collectionVariables.set('refreshToken', json.refreshToken);",
+                                    "    pm.test('Refresh realizado com sucesso', () => pm.response.to.have.status(200));",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/refresh",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "refresh"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/logout",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "logout"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Empresas",
+            "description": "CRUD de empresas (requer role ADMINISTRADOR)",
+            "item": [
+                {
+                    "name": "Criar Empresa",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"codigoErp\": \"ERP-001\",\n  \"nome\": \"Empresa Exemplo Ltda\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/empresas",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "empresas"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Empresas",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/empresas?page=0&size=20",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "empresas"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "size",
+                                    "value": "20"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Buscar Empresa por ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/empresas/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "empresas",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Atualizar Empresa",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"codigoErp\": \"ERP-001-ATUALIZADO\",\n  \"nome\": \"Empresa Exemplo Atualizada\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/empresas/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "empresas",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Remover Empresa",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/empresas/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "empresas",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Usuários",
+            "description": "CRUD de usuários",
+            "item": [
+                {
+                    "name": "Criar Usuário (ADMIN)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"nome\": \"joao.silva\",\n  \"senha\": \"SenhaSegura@123\",\n  \"role\": \"USUARIO\",\n  \"idEmpresa\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/usuarios",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "usuarios"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Usuários",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/usuarios?page=0&size=20&sort=nome",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "usuarios"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "size",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "nome"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Buscar Usuário por ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/usuarios/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "usuarios",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Atualizar Usuário",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"nome\": \"joao.silva\",\n  \"senha\": \"NovaSenha@456\",\n  \"role\": \"USUARIO\",\n  \"idEmpresa\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/usuarios/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "usuarios",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Remover Usuário (ADMIN)",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/usuarios/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "usuarios",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Produtos",
+            "description": "CRUD de produtos com upload de imagens",
+            "item": [
+                {
+                    "name": "Criar Produto (sem imagem)",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "produto",
+                                    "value": "{\"codigoEan\": \"7891234567890\", \"descricao\": \"Produto Exemplo\", \"idEmpresa\": 1}",
+                                    "contentType": "application/json",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Criar Produto (com imagem)",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "produto",
+                                    "value": "{\"codigoEan\": \"7891234567890\", \"descricao\": \"Produto com Imagem\", \"idEmpresa\": 1}",
+                                    "contentType": "application/json",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "imagens",
+                                    "type": "file",
+                                    "src": [],
+                                    "description": "Selecione a imagem JPG/PNG (máx 10MB)"
+                                },
+                                {
+                                    "key": "tipoArmazenamento",
+                                    "value": "ABERTO",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Produtos",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos?page=0&size=20&sort=descricao",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "size",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "descricao"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Buscar Produto por ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "uuid-do-produto"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Atualizar Produto",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"codigoEan\": \"7891234567890\",\n  \"descricao\": \"Produto Atualizado\",\n  \"idEmpresa\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "uuid-do-produto"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Remover Produto",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "uuid-do-produto"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Cadastrar Produtos em Lote (eanpictures)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"codigoEan\": \"7890000011112\",\n    \"descricao\": \"PRODUTO TESTE LOTE\",\n    \"idEmpresa\": 1\n  },\n  {\n    \"codigoEan\": \"7891234567890\",\n    \"descricao\": \"OUTRO PRODUTO LOTE\",\n    \"idEmpresa\": 1\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/produtos/lote",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "produtos",
+                                "lote"
+                            ]
+                        },
+                        "description": "Cadastra uma lista de produtos em lote. Para cada item: busca imagem em eanpictures.com.br pelo codigoEan, cria o produto e faz upload automático da imagem para a Cloudflare quando disponível. EANs duplicados são retornados com status=IGNORADO sem interromper o lote."
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Imagens",
+            "description": "Upload e gestão de imagens de produtos",
+            "item": [
+                {
+                    "name": "Upload de Imagem",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "arquivo",
+                                    "type": "file",
+                                    "src": [],
+                                    "description": "Arquivo de imagem (JPG/PNG/WebP, máx 10MB)"
+                                },
+                                {
+                                    "key": "dados",
+                                    "value": "{\"idProduto\": \"uuid-do-produto\", \"idEmpresa\": 1, \"tipoArmazenamento\": \"ABERTO\"}",
+                                    "contentType": "application/json",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/imagens",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "imagens"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Buscar por EAN (Público - sem token)",
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/imagens/ean/:codigoEan",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "imagens",
+                                "ean",
+                                ":codigoEan"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "codigoEan",
+                                    "value": "7891234567890"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Imagens por Produto",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/imagens/produto/:idProduto?page=0&size=20",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "imagens",
+                                "produto",
+                                ":idProduto"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "size",
+                                    "value": "20"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "idProduto",
+                                    "value": "uuid-do-produto"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Buscar Imagem por ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/imagens/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "imagens",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "uuid-da-imagem"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Atualizar Tipo de Armazenamento",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"tipoArmazenamento\": \"PRIVADO\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/imagens/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "imagens",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "uuid-da-imagem"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Remover Imagem",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/imagens/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "imagens",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "uuid-da-imagem"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Health",
+            "description": "Verificação de saúde da aplicação",
+            "item": [
+                {
+                    "name": "Health Check",
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/health",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "health"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Actuator Health",
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8080/actuator/health",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "actuator",
+                                "health"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

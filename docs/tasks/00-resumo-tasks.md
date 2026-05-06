@@ -1,4 +1,4 @@
-# Resumo do Plano de Tasks - MS Imagens
+# Resumo do Plano de Tasks - MS BlueDot
 
 ## Visão Geral
 
@@ -270,3 +270,5 @@ Testes, documentação e preparação para produção
 
 **Última atualização:** 19/02/2026  
 **Task 01 - Setup:** ✅ CONCLUÍDA
+
+

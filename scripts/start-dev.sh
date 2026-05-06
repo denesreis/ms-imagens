@@ -14,7 +14,7 @@ docker-compose -f "$PROJECT_DIR/docker-compose.dev.yml" up -d postgres
 
 # 2. Aguardar banco ficar pronto
 echo "⏳ Aguardando PostgreSQL..."
-until docker exec ms-imagens-postgres-dev pg_isready -U postgres > /dev/null 2>&1; do
+until docker exec ms-bluedot-postgres-dev pg_isready -U postgres > /dev/null 2>&1; do
   sleep 1
 done
 echo "✅ PostgreSQL pronto!"

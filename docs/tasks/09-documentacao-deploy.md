@@ -16,7 +16,7 @@ Documentar a API e preparar para deploy em produção
   - `@Schema` (schemas dos DTOs)
   
 - [x] Configurar informações gerais da API:
-  - Título: "MS Imagens API"
+  - Título: "MS BlueDot API"
   - Versão
   - Descrição
   - Contato
@@ -55,7 +55,7 @@ Documentar a API e preparar para deploy em produção
   # Database
   DB_HOST=localhost
   DB_PORT=5432
-  DB_NAME=msimagens
+  DB_NAME=msbluedot
   DB_USER=
   DB_PASSWORD=
   
@@ -180,7 +180,7 @@ Documentar a API e preparar para deploy em produção
   - Exemplos de payloads
   - Testes automatizados (opcional)
   
-- [x] Exportar e versionar no repositório (`postman/ms-imagens.postman_collection.json`)
+- [x] Exportar e versionar no repositório (`postman/MS-BlueDot.postman_collection.json`)
 
 ## Critérios de Aceite
 - Documentação OpenAPI completa e funcional
@@ -190,3 +190,5 @@ Documentar a API e preparar para deploy em produção
 - Profiles configurados
 - Collection Postman exportada
 - Aplicação pronta para deploy
+
+

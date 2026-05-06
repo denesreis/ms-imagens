@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ms-imagens
+    name: ms-bluedot
 
   # Profile ativo
   profiles:
@@ -103,7 +103,7 @@ management:
 logging:
   level:
     root: INFO
-    com.scasistemas.msimagens: INFO
+    com.scasistemas.msbluedot: INFO
     org.springframework.web: INFO
     org.springframework.security: INFO
     org.hibernate.SQL: INFO

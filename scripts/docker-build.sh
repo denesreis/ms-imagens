@@ -6,7 +6,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-IMAGE_NAME="${IMAGE_NAME:-ms-imagens}"
+IMAGE_NAME="${IMAGE_NAME:-ms-bluedot}"
 IMAGE_TAG="${IMAGE_TAG:-latest}"
 FULL_IMAGE="$IMAGE_NAME:$IMAGE_TAG"
 

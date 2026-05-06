@@ -20,7 +20,7 @@ jobs:
       postgres:
         image: postgres:16-alpine
         env:
-          POSTGRES_DB: msimagens_test
+          POSTGRES_DB: msbluedot_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -89,7 +89,7 @@ jobs:
       - name: Upload WAR
         uses: actions/upload-artifact@v4
         with:
-          name: ms-imagens-war
+          name: ms-bluedot-war
           path: target/*.war
           retention-days: 14
 
@@ -114,6 +114,6 @@ jobs:
         with:
           context: .
           push: false
-          tags: ms-imagens:${{ github.sha }},ms-imagens:latest
+          tags: ms-bluedot:${{ github.sha }},ms-bluedot:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

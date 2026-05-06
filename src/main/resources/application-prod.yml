@@ -1,9 +1,9 @@
 spring:
   # PostgreSQL - Produção via variáveis de ambiente
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/msimagens}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: ${DATABASE_URL_MS:jdbc:postgresql://app-producao-msbluedot-pkat.hospedagemelastica.com.br:5432/iqdwsdzxhxdr}
+    username: ${DB_USER_MS}
+    password: ${DB_PASSWORD_MS}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 20
@@ -36,10 +36,10 @@ spring:
 logging:
   level:
     root: WARN
-    com.scasistemas.msimagens: INFO
+    com.scasistemas.msbluedot: INFO
     org.springframework: WARN
   file:
-    name: /var/log/ms-imagens/application.log
+    name: /var/log/ms-bluedot/application.log
   logback:
     rollingpolicy:
       max-file-size: 10MB

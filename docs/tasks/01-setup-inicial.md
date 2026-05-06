@@ -32,7 +32,7 @@ Configurar a estrutura base do projeto Spring Boot seguindo boas práticas
 ### 1.2 - Estrutura de pastas
 - [x] Criar estrutura seguindo Clean Architecture:
 ```
-src/main/java/com/empresa/msimagens/
+src/main/java/com/empresa/msbluedot/
 ├── domain/
 │   ├── entities/
 │   ├── repositories/
@@ -97,3 +97,5 @@ src/main/java/com/empresa/msimagens/
 - [x] Classes de configuração criadas (CloudflareProperties, JwtProperties, etc.)
 - [x] Projeto compila sem erros (requer Maven instalado)
 - [ ] Flyway rodando (requer PostgreSQL)
+
+

@@ -22,10 +22,10 @@ FROM tomcat:10.1-jre21-temurin-alpine AS runtime
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copiar o WAR para o Tomcat
-COPY --from=build /app/target/ms-imagens.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /app/target/ms-bluedot.war /usr/local/tomcat/webapps/ROOT.war
 
 # Criar diretório de logs
-RUN mkdir -p /var/log/ms-imagens
+RUN mkdir -p /var/log/ms-bluedot
 
 # Expor porta HTTP
 EXPOSE 8080

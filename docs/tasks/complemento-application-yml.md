@@ -11,7 +11,7 @@ Este arquivo complementa a **Task 01** com as configurações específicas do ap
 ```yaml
 spring:
   application:
-    name: ms-imagens
+    name: MS-BlueDot
   
   # Profile ativo (dev, test, prod)
   profiles:
@@ -116,7 +116,7 @@ management:
 logging:
   level:
     root: INFO
-    com.empresa.msimagens: INFO
+    com.empresa.msbluedot: INFO
     org.springframework.web: INFO
     org.springframework.security: INFO
     org.hibernate.SQL: INFO
@@ -144,7 +144,7 @@ springdoc:
 spring:
   # PostgreSQL (Local)
   datasource:
-    url: jdbc:postgresql://localhost:5432/msimagens
+    url: jdbc:postgresql://localhost:5432/msbluedot
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
@@ -175,7 +175,7 @@ spring:
 # Logging detalhado
 logging:
   level:
-    com.empresa.msimagens: DEBUG
+    com.empresa.msbluedot: DEBUG
     org.springframework.web: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
@@ -228,7 +228,7 @@ spring:
 logging:
   level:
     root: WARN
-    com.empresa.msimagens: INFO
+    com.empresa.msbluedot: INFO
 
 # Cloudflare mock (não chamar API real nos testes)
 app:
@@ -249,7 +249,7 @@ springdoc:
 spring:
   # PostgreSQL (Produção - via variáveis de ambiente)
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/msimagens}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/msbluedot}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
@@ -284,10 +284,10 @@ spring:
 logging:
   level:
     root: WARN
-    com.empresa.msimagens: INFO
+    com.empresa.msbluedot: INFO
     org.springframework: WARN
   file:
-    name: /var/log/ms-imagens/application.log
+    name: /var/log/MS-BlueDot/application.log
     max-size: 10MB
     max-history: 30
 
@@ -328,7 +328,7 @@ Criar arquivo `.env` na raiz do projeto (NÃO commitar!):
 # Database
 DB_USER=postgres
 DB_PASSWORD=postgres
-DATABASE_URL=jdbc:postgresql://localhost:5432/msimagens
+DATABASE_URL=jdbc:postgresql://localhost:5432/msbluedot
 
 # JWT
 JWT_SECRET=minha-chave-secreta-super-segura-deve-ter-no-minimo-256-bits-para-HS512
@@ -352,7 +352,7 @@ SWAGGER_ENABLED=false
 ## Classe de Configuração para Properties
 
 ```java
-package com.empresa.msimagens.config;
+package com.empresa.msbluedot.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -379,7 +379,7 @@ public class CloudflareProperties {
 ```
 
 ```java
-package com.empresa.msimagens.config;
+package com.empresa.msbluedot.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -460,3 +460,5 @@ http.headers()
 ---
 
 **Próximo Passo:** Com pom.xml e application.yml configurados, iniciar Task 02 (Camada de Domínio)
+
+

@@ -20,10 +20,10 @@
          Identificação
     =================================================== -->
     <groupId>com.scasistemas</groupId>
-    <artifactId>ms-imagens</artifactId>
+    <artifactId>ms-bluedot</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>ms-imagens</name>
-    <description>Micro-serviço de gerenciamento de imagens integrado com Cloudflare Images API</description>
+    <name>ms-bluedot</name>
+    <description>Micro-serviço BlueDot integrado com Cloudflare Images API</description>
     <packaging>war</packaging>
 
     <!-- ===================================================
@@ -308,7 +308,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway.version}</version>
                 <configuration>
-                    <url>jdbc:postgresql://localhost:5432/msimagens</url>
+                    <url>jdbc:postgresql://localhost:5432/msbluedot</url>
                     <user>${env.DB_USER}</user>
                     <password>${env.DB_PASSWORD}</password>
                     <locations>

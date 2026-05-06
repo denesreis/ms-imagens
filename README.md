@@ -1,4 +1,4 @@
-# MS Imagens
+# MS BlueDot
 
 Micro-serviço de gerenciamento de imagens de produtos integrado com **Cloudflare Images API**.
 
@@ -25,7 +25,7 @@ Micro-serviço de gerenciamento de imagens de produtos integrado com **Cloudflar
 Segue **Clean Architecture** com separação em camadas:
 
 ```
-src/main/java/com/scasistemas/msimagens/
+src/main/java/com/scasistemas/msbluedot/
 ├── domain/              ← Entidades, contratos, exceções (sem frameworks)
 ├── application/         ← Use cases, DTOs, mappers (regras de negócio)
 ├── infrastructure/      ← Controllers, JPA, Cloudflare, Security
@@ -44,7 +44,7 @@ src/main/java/com/scasistemas/msimagens/
 1. **Clone o repositório e entre na pasta:**
    ```bash
    git clone <repo-url>
-   cd ms-imagens
+   cd ms-bluedot
    ```
 
 2. **Configure as variáveis de ambiente:**
@@ -55,7 +55,7 @@ src/main/java/com/scasistemas/msimagens/
 
 3. **Crie o banco de dados:**
    ```sql
-   CREATE DATABASE msimagens;
+   CREATE DATABASE msbluedot;
    ```
 
 4. **Execute as migrations:**
@@ -79,7 +79,7 @@ Swagger UI: `http://localhost:8080/api/v1/swagger-ui.html`
 mvn clean package -DskipTests
 ```
 
-O arquivo WAR será criado em `target/ms-imagens.war`.
+O arquivo WAR será criado em `target/ms-bluedot.war`.
 
 Deploy em Tomcat 10+: copie o WAR para a pasta `webapps/`.
 
@@ -150,5 +150,6 @@ mvn clean test jacoco:report
 - [x] Task 07 - Controllers
 - [x] Task 08 - Testes (198 testes, BUILD SUCCESS)
 - [x] Task 09 - Documentação e Deploy
-# ms-imagens
-# ms-imagens
+# ms-bluedot
+# ms-bluedot
+

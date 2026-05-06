@@ -22,7 +22,7 @@ if (-not $SkipDocker) {
     do {
         $attempt++
         Start-Sleep -Seconds 2
-        $ready = docker exec ms-imagens-postgres-dev pg_isready -U postgres 2>$null
+        $ready = docker exec ms-bluedot-postgres-dev pg_isready -U postgres 2>$null
     } while ($LASTEXITCODE -ne 0 -and $attempt -lt $maxAttempts)
 
     if ($LASTEXITCODE -eq 0) {

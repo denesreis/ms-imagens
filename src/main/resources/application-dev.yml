@@ -1,9 +1,9 @@
 spring:
   # PostgreSQL (Local)
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:msimagens}
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:postgres}
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:msbluedot}
+    username: ${DB_USER_MS:postgres}
+    password: ${DB_PASSWORD_MS:postgres}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -32,7 +32,7 @@ spring:
 # Logging detalhado em desenvolvimento
 logging:
   level:
-    com.scasistemas.msimagens: DEBUG
+    com.scasistemas.msbluedot: DEBUG
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
     org.hibernate.SQL: DEBUG

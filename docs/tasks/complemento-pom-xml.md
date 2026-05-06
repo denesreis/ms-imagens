@@ -332,7 +332,7 @@ Este arquivo complementa a **Task 01** com as configurações específicas do po
             <artifactId>flyway-maven-plugin</artifactId>
             <version>${flyway.version}</version>
             <configuration>
-                <url>jdbc:postgresql://localhost:5432/msimagens</url>
+                <url>jdbc:postgresql://localhost:5432/msbluedot</url>
                 <user>postgres</user>
                 <password>postgres</password>
             </configuration>
@@ -422,7 +422,7 @@ mvn spring-boot:run
 Como o projeto é empacotado como WAR, precisa de uma classe para inicialização:
 
 ```java
-package com.empresa.msimagens;
+package com.empresa.msbluedot;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -431,7 +431,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(MsImagensApplication.class);
+        return application.sources(MsBluedotApplication.class);
     }
 }
 ```
@@ -455,3 +455,5 @@ public class ServletInitializer extends SpringBootServletInitializer {
 ---
 
 **Próximo Passo:** Após configurar o pom.xml, seguir para Task 02 (Camada de Domínio)
+
+

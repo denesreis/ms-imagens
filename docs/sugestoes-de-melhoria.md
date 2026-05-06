@@ -1,4 +1,4 @@
-# Sugestões de Melhoria - Projeto MS-Imagens
+# Sugestões de Melhoria - Projeto MS-BlueDot
 
 **Data da análise:** 18/02/2026  
 **Status:** Pendente de revisão
@@ -356,3 +356,5 @@ A busca por `codigoEan` retorna apenas imagens abertas (tipo 0). Esse endpoint p
 ---
 
 **Instruções:** Marque com ✅ as sugestões aprovadas e me avise para que eu atualize as tasks correspondentes.
+
+

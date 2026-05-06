@@ -1,10 +1,10 @@
 -- ============================================================
 -- V2 - Dados iniciais
--- ms-imagens - Flyway Migration
+-- ms-bluedot - Flyway Migration
 -- ============================================================
--- ATENÇÃO: a senha '$2a$10$...' abaixo é um PLACEHOLDER.
--- Substitua por um hash BCrypt real antes de usar em produção.
--- Gere com: BCrypt.hashpw("suaSenhaAqui", BCrypt.gensalt(10))
+-- Senha inicial: senha123 (BCrypt 12 rounds)
+-- ATENÇÃO: trocar OBRIGATORIAMENTE antes do primeiro deploy em produção.
+-- Gere novo hash com: BCrypt.hashpw("novaSenha", BCrypt.gensalt(12))
 -- ============================================================
 
 -- Empresa padrão
@@ -12,7 +12,7 @@ INSERT INTO tb_empresa (codigo_erp, nome, ativo, data_criacao, data_atualizacao)
 VALUES ('001', 'Empresa Padrão', TRUE, NOW(), NOW());
 
 -- Usuário administrador padrão
--- Senha: trocar OBRIGATORIAMENTE antes do primeiro deploy
+-- Senha: senha123 — trocar OBRIGATORIAMENTE antes do primeiro deploy em produção
 INSERT INTO tb_usuario (
     id_empresa,
     nome,
@@ -27,7 +27,7 @@ INSERT INTO tb_usuario (
 VALUES (
     1,
     'admin',
-    '$2a$12$rTsw9BMAEfghkdBwTehWcOkVHNorQCpURhMF793Z9nrAlWJrS5V3S',
+    '$2a$12$B7MDI1Ta2L3l2dpBsXbOQefgE/ZC5FOcGzQOiQuWxs14b2VDixPtC',
     'ADMINISTRADOR',
     TRUE,
     0,

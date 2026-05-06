@@ -1,7 +1,7 @@
 version: "3.9"
 
 # ==============================================================================
-# MS Imagens - Docker Compose para DESENVOLVIMENTO
+# MS BlueDot - Docker Compose para DESENVOLVIMENTO
 # Sobrepõe o docker-compose.yml com configurações de dev
 #
 # Uso: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
@@ -12,11 +12,11 @@ services:
   # Em desenvolvimento, apenas o banco sobe via Docker
   # A aplicação roda localmente com: mvn spring-boot:run
   postgres:
-    container_name: ms-imagens-postgres-dev
+    container_name: ms-bluedot-postgres-dev
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: msimagens
+      POSTGRES_DB: msbluedot
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
@@ -25,7 +25,7 @@ services:
   # Opcional: PgAdmin para gerenciar o banco visualmente
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: ms-imagens-pgadmin
+    container_name: ms-bluedot-pgadmin
     restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@local.dev
