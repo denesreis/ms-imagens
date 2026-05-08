@@ -21,7 +21,8 @@ import java.util.Optional;
 public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long> {
 
     /**
-     * Busca um usuário pelo nome (username para login), ignorando maiúsculas/minúsculas.
+     * Busca um usuário pelo nome (username para login), ignorando
+     * maiúsculas/minúsculas.
      * Filtra automaticamente por {@code ativo = true}.
      */
     Optional<UsuarioEntity> findByNomeIgnoreCase(String nome);
@@ -37,5 +38,11 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
      */
     @Query(value = "SELECT COUNT(*) > 0 FROM tb_usuario WHERE nome = :nome", nativeQuery = true)
     boolean existsByNomeIgnoringSoftDelete(@Param("nome") String nome);
-}
 
+    /**
+     * Busca usuÃ¡rio pelo nome ignorando o soft delete (ativo = true/false).
+     * Usado no sync para reativar usuÃ¡rios inativos.
+     */
+    @Query(value = "SELECT * FROM tb_usuario WHERE LOWER(nome) = LOWER(:nome) LIMIT 1", nativeQuery = true)
+    Optional<UsuarioEntity> findByNomeIgnoringSoftDelete(@Param("nome") String nome);
+}

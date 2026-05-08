@@ -63,5 +63,10 @@ public interface IUsuarioRepository {
      * @param nome nome a verificar
      */
     boolean existsByNome(String nome);
-}
 
+    /**
+     * Busca usuÃ¡rio pelo nome ignorando soft delete.
+     * Usado no sync para localizar e reativar usuÃ¡rios inativos.
+     */
+    Optional<Usuario> findByNomeIncludingInactive(String nome);
+}

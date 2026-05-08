@@ -70,5 +70,9 @@ public class UsuarioRepositoryAdapter implements IUsuarioRepository {
     public boolean existsByNome(String nome) {
         return jpaRepository.existsByNomeIgnoringSoftDelete(nome);
     }
-}
 
+    @Override
+    public Optional<Usuario> findByNomeIncludingInactive(String nome) {
+        return jpaRepository.findByNomeIgnoringSoftDelete(nome).map(mapper::toDomain);
+    }
+}

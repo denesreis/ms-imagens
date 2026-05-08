@@ -84,6 +84,9 @@ app:
       max-height: ${IMAGE_MAX_HEIGHT:1080}
       quality: ${IMAGE_QUALITY:0.85}
 
+  sync:
+    api-key: ${SYNC_API_KEY:chave-interna-dev}
+
 # Actuator (Monitoramento)
 management:
   endpoints:

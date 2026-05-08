@@ -2,6 +2,7 @@ package com.scasistemas.msbluedot.config;
 
 import com.scasistemas.msbluedot.infrastructure.security.CustomUserDetailsService;
 import com.scasistemas.msbluedot.infrastructure.security.JwtAuthenticationFilter;
+import com.scasistemas.msbluedot.infrastructure.security.SyncApiKeyFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,6 +56,7 @@ import java.util.List;
 public class SecurityConfig {
 
         private final JwtAuthenticationFilter jwtAuthenticationFilter;
+        private final SyncApiKeyFilter syncApiKeyFilter;
         private final CustomUserDetailsService userDetailsService;
 
         /**
@@ -108,6 +110,10 @@ public class SecurityConfig {
                                                                 "/api/v1/auth/refresh")
                                                 .permitAll()
 
+                                                // Endpoints internos de sincronização (protegidos por X-Sync-Key no
+                                                // filtro)
+                                                .requestMatchers(HttpMethod.POST, "/api/v1/sync/**").permitAll()
+
                                                 // Consulta pública de imagens por EAN
                                                 .requestMatchers(HttpMethod.GET, "/api/v1/imagens/ean/**").permitAll()
 
@@ -142,7 +148,10 @@ public class SecurityConfig {
 
                                 // JWT Filter antes do filtro padrão de username/password
                                 .addFilterBefore(jwtAuthenticationFilter,
-                                                UsernamePasswordAuthenticationFilter.class);
+                                                UsernamePasswordAuthenticationFilter.class)
+
+                                // SyncApiKeyFilter valida X-Sync-Key antes do JWT filter
+                                .addFilterBefore(syncApiKeyFilter, UsernamePasswordAuthenticationFilter.class);
 
                 return http.build();
         }
@@ -169,4 +178,3 @@ public class SecurityConfig {
                 return source;
         }
 }
-
