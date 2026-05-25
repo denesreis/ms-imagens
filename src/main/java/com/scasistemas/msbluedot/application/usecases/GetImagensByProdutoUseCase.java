@@ -3,6 +3,7 @@ package com.scasistemas.msbluedot.application.usecases;
 import com.scasistemas.msbluedot.application.dto.imagem.ImagemResponse;
 import com.scasistemas.msbluedot.application.mappers.ImagemMapper;
 import com.scasistemas.msbluedot.domain.entities.Imagem;
+import com.scasistemas.msbluedot.domain.enums.TipoArmazenamentoEnum;
 import com.scasistemas.msbluedot.domain.exceptions.ResourceNotFoundException;
 import com.scasistemas.msbluedot.domain.exceptions.UnauthorizedException;
 import com.scasistemas.msbluedot.domain.repositories.IImagemRepository;
@@ -20,7 +21,10 @@ import java.util.List;
 
 /**
  * Use Case para listagem de imagens de um produto com paginação.
- * Verifica permissão de empresa para usuários não-admin.
+ * ADMINISTRADOR (ms-bluedot) = MASTER (novo-mercador): retorna apenas imagens
+ * ABERTO.
+ * USUARIO (ms-bluedot) = ADMINISTRADOR (novo-mercador): retorna apenas imagens
+ * PRIVADO da empresa.
  */
 @Slf4j
 @Service
@@ -35,19 +39,22 @@ public class GetImagensByProdutoUseCase {
     public Page<ImagemResponse> execute(String idProduto, Pageable pageable) {
         log.debug("[GetImagensByProduto] Buscando imagens do produto id='{}'", idProduto);
 
-        // Verificar se produto existe
         var produto = produtoRepository.findById(idProduto)
                 .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado: " + idProduto));
 
-        // Verificar permissão de empresa para USUARIOS
-        if (!SecurityUtils.isAdministrador()) {
+        List<Imagem> imagens;
+        if (SecurityUtils.isAdministrador()) {
+            // MASTER (novo-mercador): apenas imagens ABERTO
+            imagens = imagemRepository.findByIdProdutoAndTipoArmazenamento(idProduto, TipoArmazenamentoEnum.ABERTO);
+        } else {
+            // ADMINISTRADOR (novo-mercador): apenas imagens PRIVADO da própria empresa
             Long idEmpresaToken = SecurityUtils.getCurrentIdEmpresa();
             if (produto.getIdEmpresa() != null && !produto.getIdEmpresa().equals(idEmpresaToken)) {
                 throw new UnauthorizedException("Acesso negado ao produto solicitado");
             }
+            imagens = imagemRepository.findByIdProdutoAndTipoArmazenamento(idProduto, TipoArmazenamentoEnum.PRIVADO);
         }
 
-        List<Imagem> imagens = imagemRepository.findByIdProduto(idProduto);
         List<ImagemResponse> responses = imagens.stream()
                 .map(imagemMapper::toResponse)
                 .toList();
@@ -61,8 +68,8 @@ public class GetImagensByProdutoUseCase {
     }
 
     /**
-     * Retorna todas as imagens de um produto sem paginação.
-     * Inclui a mesma verificação de permissão de empresa.
+     * Retorna todas as imagens de um produto sem paginação, filtradas por tipo
+     * conforme o role.
      *
      * @param idProduto UUID do produto
      * @return lista completa de respostas de imagem
@@ -74,16 +81,22 @@ public class GetImagensByProdutoUseCase {
         var produto = produtoRepository.findById(idProduto)
                 .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado: " + idProduto));
 
-        if (!SecurityUtils.isAdministrador()) {
+        if (SecurityUtils.isAdministrador()) {
+            // MASTER (novo-mercador): apenas imagens ABERTO
+            return imagemRepository.findByIdProdutoAndTipoArmazenamento(idProduto, TipoArmazenamentoEnum.ABERTO)
+                    .stream()
+                    .map(imagemMapper::toResponse)
+                    .toList();
+        } else {
+            // ADMINISTRADOR (novo-mercador): apenas imagens PRIVADO da própria empresa
             Long idEmpresaToken = SecurityUtils.getCurrentIdEmpresa();
             if (produto.getIdEmpresa() != null && !produto.getIdEmpresa().equals(idEmpresaToken)) {
                 throw new UnauthorizedException("Acesso negado ao produto solicitado");
             }
+            return imagemRepository.findByIdProdutoAndTipoArmazenamento(idProduto, TipoArmazenamentoEnum.PRIVADO)
+                    .stream()
+                    .map(imagemMapper::toResponse)
+                    .toList();
         }
-
-        return imagemRepository.findByIdProduto(idProduto).stream()
-                .map(imagemMapper::toResponse)
-                .toList();
     }
 }
-

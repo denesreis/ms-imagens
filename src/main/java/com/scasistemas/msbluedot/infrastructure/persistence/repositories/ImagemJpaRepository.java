@@ -21,34 +21,40 @@ import java.util.List;
  */
 public interface ImagemJpaRepository extends JpaRepository<ImagemEntity, String> {
 
-    /**
-     * Lista imagens ativas de um produto com paginação.
-     */
-    Page<ImagemEntity> findByIdProduto(String idProduto, Pageable pageable);
+        /**
+         * Lista imagens ativas de um produto com paginação.
+         */
+        Page<ImagemEntity> findByIdProduto(String idProduto, Pageable pageable);
 
-    /**
-     * Lista imagens ativas de um produto por tipo de armazenamento.
-     */
-    List<ImagemEntity> findByIdProdutoAndTipoArmazenamento(
-            String idProduto, TipoArmazenamentoEnum tipoArmazenamento);
+        /**
+         * Lista imagens ativas de um produto por tipo de armazenamento.
+         */
+        List<ImagemEntity> findByIdProdutoAndTipoArmazenamento(
+                        String idProduto, TipoArmazenamentoEnum tipoArmazenamento);
 
-    /**
-     * Busca imagens públicas (ABERTO + ATIVO) de um produto pelo código EAN.
-     * Utilizado pelo endpoint público GET /imagens/ean/{codigoEan} (sem JWT).
-     *
-     * <p>
-     * JOIN com tb_produto para resolver o codigoEan.
-     * </p>
-     */
-    @Query("""
-            SELECT i FROM ImagemEntity i
-            JOIN ProdutoEntity p ON p.id = i.idProduto
-            WHERE p.codigoEan = :codigoEan
-              AND i.tipoArmazenamento = 'ABERTO'
-              AND i.status = :status
-            """)
-    List<ImagemEntity> findByCodigoEanAndTipoAberto(
-            @Param("codigoEan") String codigoEan,
-            @Param("status") StatusImagemEnum status);
+        /**
+         * Busca imagens públicas (ABERTO + ATIVO) de um produto pelo código EAN.
+         * Utilizado pelo endpoint público GET /imagens/ean/{codigoEan} (sem JWT).
+         *
+         * <p>
+         * JOIN com tb_produto para resolver o codigoEan.
+         * </p>
+         */
+        @Query("""
+                        SELECT i FROM ImagemEntity i
+                        JOIN ProdutoEntity p ON p.id = i.idProduto
+                        WHERE p.codigoEan = :codigoEan
+                          AND i.tipoArmazenamento = 'ABERTO'
+                          AND i.status = :status
+                        """)
+        List<ImagemEntity> findByCodigoEanAndTipoAberto(
+                        @Param("codigoEan") String codigoEan,
+                        @Param("status") StatusImagemEnum status);
+
+        /**
+         * Retorna IDs distintos de produtos que possuem ao menos uma imagem ativa
+         * com o tipo de armazenamento informado.
+         */
+        @Query("SELECT DISTINCT i.idProduto FROM ImagemEntity i WHERE i.tipoArmazenamento = :tipo")
+        List<String> findDistinctIdProdutosByTipoArmazenamento(@Param("tipo") TipoArmazenamentoEnum tipo);
 }
-

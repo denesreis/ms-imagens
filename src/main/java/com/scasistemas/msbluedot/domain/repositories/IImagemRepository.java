@@ -65,5 +65,12 @@ public interface IImagemRepository {
      * @param tipoArmazenamento tipo de acesso da imagem
      */
     List<Imagem> findByIdProdutoAndTipoArmazenamento(String idProduto, TipoArmazenamentoEnum tipoArmazenamento);
-}
 
+    /**
+     * Retorna IDs distintos de produtos que possuem ao menos uma imagem ativa
+     * com o tipo de armazenamento informado.
+     *
+     * @param tipoArmazenamento ABERTO ou PRIVADO
+     */
+    List<String> findDistinctIdProdutosByTipoArmazenamento(TipoArmazenamentoEnum tipoArmazenamento);
+}

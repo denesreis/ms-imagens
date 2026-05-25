@@ -74,5 +74,9 @@ public class ImagemRepositoryAdapter implements IImagemRepository {
                 .map(mapper::toDomain)
                 .toList();
     }
-}
 
+    @Override
+    public List<String> findDistinctIdProdutosByTipoArmazenamento(TipoArmazenamentoEnum tipoArmazenamento) {
+        return jpaRepository.findDistinctIdProdutosByTipoArmazenamento(tipoArmazenamento);
+    }
+}
