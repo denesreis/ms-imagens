@@ -72,6 +72,13 @@ Thumbs.db
 docker-compose.override.yml
 
 # ===================================================
+# Deploy VPS (diretórios criados pelos scripts em /srv/apps/ms-bluedot)
+# ===================================================
+backups/
+data/
+*.bak
+
+# ===================================================
 # Logs
 # ===================================================
 logs/

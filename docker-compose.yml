@@ -1,30 +1,36 @@
-version: "3.9"
+# ==============================================================================
+# ms-bluedot - Docker Compose (Produção / VPS Hostinger)
+# ==============================================================================
+# Padrão: bluedot-handbook (Traefik + rede `proxy` + scripts/deploy.sh)
+# - 80/443 são exclusivos do Traefik; este compose NÃO publica HTTP no host.
+# - App fala com Traefik via rede externa `proxy` usando labels.
+# - Postgres publica apenas em 127.0.0.1:${POSTGRES_HOST_PORT} (acesso via tunnel SSH).
+# ==============================================================================
 
-# ==============================================================================
-# MS BlueDot - Docker Compose (Produção/Staging)
-# ==============================================================================
+name: ms-bluedot
 
 services:
 
   # ----------------------------------------------------------------------------
-  # Aplicação - MS BlueDot (Tomcat + WAR)
+  # Aplicação - ms-bluedot (Tomcat 10 + WAR)
   # ----------------------------------------------------------------------------
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ms-bluedot-app
+    image: ms-bluedot-app:local
     restart: unless-stopped
-    ports:
-      - "${SERVER_PORT:-8080}:8080"
+    expose:
+      - "${APP_PORT:-8080}"
     environment:
       SPRING_PROFILE: prod
-      SERVER_PORT: 8080
+      SERVER_PORT: ${APP_PORT:-8080}
 
-      # Database
-      DATABASE_URL_MS: jdbc:postgresql://postgres:5432/${DB_NAME:-msbluedot}
-      DB_USER_MS: ${DB_USER_MS}
-      DB_PASSWORD_MS: ${DB_PASSWORD_MS}
+      # Database (container postgres na rede interna)
+      DATABASE_URL_MS: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+      DB_USER_MS: ${POSTGRES_USER}
+      DB_PASSWORD_MS: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
 
       # JWT (OBRIGATÓRIO)
       JWT_SECRET: ${JWT_SECRET}
@@ -36,7 +42,7 @@ services:
       CLOUDFLARE_GET_TOKEN: ${CLOUDFLARE_GET_TOKEN}
       CLOUDFLARE_POST_TOKEN: ${CLOUDFLARE_POST_TOKEN}
 
-      # Configurações
+      # Configurações opcionais
       IMAGE_COMPRESSION_ENABLED: ${IMAGE_COMPRESSION_ENABLED:-true}
       LOGIN_MAX_ATTEMPTS: ${LOGIN_MAX_ATTEMPTS:-5}
       LOGIN_BLOCK_DURATION: ${LOGIN_BLOCK_DURATION:-900000}
@@ -45,37 +51,52 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+
     networks:
-      - app-network
+      - proxy
+      - internal
+
     volumes:
       - app-logs:/var/log/ms-bluedot
+
     healthcheck:
-      test: [ "CMD", "wget", "-qO-", "http://localhost:8080/api/v1/health" ]
+      test: ["CMD", "wget", "-qO-", "http://localhost:${APP_PORT:-8080}${APP_HEALTH_PATH:-/api/v1/health}"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 90s
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      # Router HTTPS
+      - "traefik.http.routers.ms-bluedot.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.ms-bluedot.entrypoints=websecure"
+      - "traefik.http.routers.ms-bluedot.tls=true"
+      - "traefik.http.routers.ms-bluedot.tls.certresolver=letsencrypt"
+      # Service interno
+      - "traefik.http.services.ms-bluedot.loadbalancer.server.port=${APP_PORT:-8080}"
 
   # ----------------------------------------------------------------------------
   # Banco de Dados - PostgreSQL 16
   # ----------------------------------------------------------------------------
   postgres:
     image: postgres:16-alpine
-    container_name: ms-bluedot-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ${DB_NAME:-msbluedot}
-      POSTGRES_USER: ${DB_USER_MS}
-      POSTGRES_PASSWORD: ${DB_PASSWORD_MS}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - "${DB_PORT:-5432}:5432"
+      # Bind apenas no loopback do host — acesso externo somente via tunnel SSH.
+      - "127.0.0.1:${POSTGRES_HOST_PORT}:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
-      - app-network
+      - internal
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER_MS} -d ${DB_NAME:-msbluedot}" ]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -94,5 +115,9 @@ volumes:
 # Networks
 # ==============================================================================
 networks:
-  app-network:
+  # Rede pública compartilhada com Traefik (criada fora deste compose).
+  proxy:
+    external: true
+  # Rede interna privada (app <-> postgres).
+  internal:
     driver: bridge

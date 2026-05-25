@@ -1,0 +1,21 @@
+# Normaliza fim de linha — evita CRLF em scripts shell que rodam em Linux/VPS.
+* text=auto eol=lf
+
+*.sh        text eol=lf
+*.bash      text eol=lf
+
+# Arquivos Windows mantém CRLF
+*.ps1       text eol=crlf
+*.cmd       text eol=crlf
+*.bat       text eol=crlf
+
+# Binários
+*.jar       binary
+*.war       binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.zip       binary
+*.gz        binary

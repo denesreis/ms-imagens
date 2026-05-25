@@ -1,7 +1,9 @@
 spring:
   # PostgreSQL - Produção via variáveis de ambiente
+  # Default aponta para o container `postgres` na rede interna do Compose.
+  # Em outros ambientes, sobrescrever via env var DATABASE_URL_MS.
   datasource:
-    url: ${DATABASE_URL_MS:jdbc:postgresql://app-producao-msbluedot-pkat.hospedagemelastica.com.br:5432/iqdwsdzxhxdr}
+    url: ${DATABASE_URL_MS:jdbc:postgresql://postgres:5432/${POSTGRES_DB:msbluedot}}
     username: ${DB_USER_MS}
     password: ${DB_PASSWORD_MS}
     driver-class-name: org.postgresql.Driver
