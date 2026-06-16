@@ -87,6 +87,15 @@ app:
   sync:
     api-key: ${SYNC_API_KEY:chave-interna-dev}
 
+  whatsapp:
+    api-url: ${WHATSAPP_API_URL:}
+    api-key: ${WHATSAPP_API_KEY:}
+    instance: ${WHATSAPP_INSTANCE:}
+    max-file-size-mb: ${WHATSAPP_MAX_FILE_SIZE_MB:10}
+    timeout:
+      connect: 10000
+      read: 30000
+
 # Actuator (Monitoramento)
 management:
   endpoints:

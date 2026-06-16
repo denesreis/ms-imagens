@@ -1,15 +1,12 @@
 package com.scasistemas.msbluedot;
 
-import com.scasistemas.msbluedot.domain.entities.Usuario;
-import com.scasistemas.msbluedot.domain.enums.RoleEnum;
-import com.scasistemas.msbluedot.infrastructure.security.UserPrincipal;
+import com.scasistemas.msbluedot.entity.Usuario;
+import com.scasistemas.msbluedot.enums.RoleEnum;
+import com.scasistemas.msbluedot.security.UserPrincipal;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;
 
-/**
- * Utilitário de teste para configurar o Spring SecurityContext.
- */
 public class TestSecurityHelper {
 
     public static void mockAdminContext() {
@@ -31,8 +28,8 @@ public class TestSecurityHelper {
                 .build();
 
         UserPrincipal principal = new UserPrincipal(usuario);
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(principal, null,
-                principal.getAuthorities());
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                principal, null, principal.getAuthorities());
 
         SecurityContextHolder.setContext(new SecurityContextImpl(authentication));
     }
@@ -41,4 +38,3 @@ public class TestSecurityHelper {
         SecurityContextHolder.clearContext();
     }
 }
-

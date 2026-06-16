@@ -1,9 +1,10 @@
 package com.scasistemas.msbluedot.config;
 
-import com.scasistemas.msbluedot.infrastructure.security.CustomUserDetailsService;
-import com.scasistemas.msbluedot.infrastructure.security.JwtAuthenticationFilter;
-import com.scasistemas.msbluedot.infrastructure.security.SyncApiKeyFilter;
+import com.scasistemas.msbluedot.security.CustomUserDetailsService;
+import com.scasistemas.msbluedot.security.JwtAuthenticationFilter;
+import com.scasistemas.msbluedot.security.SyncApiKeyFilter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -52,12 +53,20 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-@RequiredArgsConstructor
 public class SecurityConfig {
 
         private final JwtAuthenticationFilter jwtAuthenticationFilter;
         private final SyncApiKeyFilter syncApiKeyFilter;
         private final CustomUserDetailsService userDetailsService;
+
+        public SecurityConfig(
+                        @Qualifier("newJwtAuthenticationFilter") JwtAuthenticationFilter jwtAuthenticationFilter,
+                        @Qualifier("newSyncApiKeyFilter") SyncApiKeyFilter syncApiKeyFilter,
+                        @Qualifier("newCustomUserDetailsService") CustomUserDetailsService userDetailsService) {
+                this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+                this.syncApiKeyFilter = syncApiKeyFilter;
+                this.userDetailsService = userDetailsService;
+        }
 
         /**
          * BCrypt com 12 rounds — recomendado para 2026.
@@ -107,18 +116,28 @@ public class SecurityConfig {
                                                 // Endpoints públicos de autenticação
                                                 .requestMatchers(HttpMethod.POST,
                                                                 "/api/v1/auth/login",
-                                                                "/api/v1/auth/refresh")
+                                                                "/api/v1/auth/refresh",
+                                                                "/api/v2/auth/login",
+                                                                "/api/v2/auth/refresh")
                                                 .permitAll()
 
-                                                // Endpoints internos de sincronização (protegidos por X-Sync-Key no
-                                                // filtro)
-                                                .requestMatchers(HttpMethod.POST, "/api/v1/sync/**").permitAll()
+                                                // Endpoints internos de sincronização (protegidos por X-Sync-Key no filtro)
+                                                .requestMatchers(HttpMethod.POST,
+                                                                "/api/v1/sync/**",
+                                                                "/api/v2/sync/**")
+                                                .permitAll()
 
                                                 // Consulta pública de imagens por EAN
-                                                .requestMatchers(HttpMethod.GET, "/api/v1/imagens/ean/**").permitAll()
+                                                .requestMatchers(HttpMethod.GET,
+                                                                "/api/v1/imagens/ean/**",
+                                                                "/api/v2/imagens/ean/**")
+                                                .permitAll()
 
                                                 // Actuator health e health customizado
-                                                .requestMatchers(HttpMethod.GET, "/actuator/health", "/api/v1/health")
+                                                .requestMatchers(HttpMethod.GET,
+                                                                "/actuator/health",
+                                                                "/api/v1/health",
+                                                                "/api/v2/health")
                                                 .permitAll()
 
                                                 // Swagger / OpenAPI
